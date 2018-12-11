@@ -1,0 +1,60 @@
+.test {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.figureaffiche{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+figure > img:not(.affiche) {
+    height: 20vh;
+}
+
+.decal {
+    margin-left: 2vw;
+}
+
+footer > p{
+    color: gray;
+}
+
+@media (min-width: 1080px) {
+    body {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    /*aside{
+        position: absolute;
+        bottom: 0;
+    }*/
+}
+
+@media only screen and (min-width: 1100px) {
+    aside {
+        float: right;
+    }
+}
+
+.real{
+    margin-bottom: 8vh;
+}
+
+.inli {
+    display: inline-block;
+}
+
+.imagesfilm > figure{
+    display: inline-block;
+}
+
+.affiche {
+    height: 373px;
+    width: 280px;
+}
+
+h2 {
+    margin-left: 25px;
+}
