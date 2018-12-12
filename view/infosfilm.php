@@ -2,11 +2,14 @@
     <figure class="figureaffiche">
         <img class="affiche" src="<?php
 
-        foreach ($data[2] as $img){
-            if ($img['type'] == 'poster'){
-                echo $img['path'];
+       // foreach ($data[2] as $img){
+
+            foreach ($data[2] as $img){
+                if ($img['type'] == 'poster')
+                    echo $img['path'];
             }
-        }
+
+
 
         ?>">
     </figure>

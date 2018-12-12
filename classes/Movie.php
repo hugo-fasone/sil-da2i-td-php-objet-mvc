@@ -85,7 +85,7 @@ class Movie
         $BD->prepare($query);
         $queryParam = [':id' => $this->id];
         $BD->query($queryParam);
-        $array = $BD->fetch();
+        $array = $BD->fetch()[0];
         return $array;
     }
 
@@ -102,5 +102,39 @@ class Movie
         $BD->query($queryParam);
         $array = $BD->fetch();
         return $array;
+    }
+
+    static function insert($title,$releaseDate,$synopsis,$director,$actors,$target_file){
+        $BD = $GLOBALS['BD'];
+        $query = 'INSERT INTO movie (title, releaseDate, synopsis) VALUES (:title, :releaseDate, :synopsis)';
+        $BD->prepare($query);
+        $queryParam = [':title' => $title,':releaseDate' => $releaseDate, ':synopsis' => $synopsis];
+        $BD->query($queryParam);
+
+        $idMovie = $BD->lastInsertId();
+
+        $query = 'INSERT INTO movieHasPerson (idMovie, idPerson, role) VALUES (:idMovie, :idPerson, :role)';
+
+        $BD->prepare($query);
+        $queryParam = [':idMovie' => $idMovie,':idPerson' => $director, ':role' => 'director'];
+        $BD->query($queryParam);
+
+        $BD->prepare($query);
+        foreach ($actors as $actor){
+            $queryParam = [':idMovie' => $idMovie,':idPerson' => $actor, ':role' => 'actor'];
+            $BD->query($queryParam);
+        }
+
+        $query = 'INSERT INTO picture (path, legend) VALUES (:path, :legend)';
+        $BD->prepare($query);
+        $queryParam = [':path' => $target_file,':legend' => ''];
+        $BD->query($queryParam);
+
+        $id = $BD->lastInsertId();
+
+        $query = 'INSERT INTO movieHasPicture (idMovie, idPicture, type) VALUES (:idMovie, :idPicture, :type)';
+        $BD->prepare($query);
+        $queryParam = [':idMovie' => $idMovie,':idPicture' => $id, ':type' => 'poster'];
+        $BD->query($queryParam);
     }
 }

@@ -69,7 +69,7 @@ class Person
         $BD->prepare($query);
         $queryParam = [':id' => $this->id];
         $BD->query($queryParam);
-        $array = $BD->fetch();
+        $array = $BD->fetch()[0];
         return $array;
     }
 
@@ -86,7 +86,7 @@ class Person
         $BD->prepare($query);
         $queryParam = [':id' => $this->id];
         $BD->query($queryParam);
-        $array = $BD->fetch();
+        $array = $BD->fetch()[0];
         return $array;
     }
 
@@ -101,5 +101,27 @@ class Person
         $BD->query($queryParam);
         $array = $BD->fetch();
         return $array;
+    }
+
+    static function insert($lastname,$firstname,$birthDate,$biography,$target_file){
+        $BD = $GLOBALS['BD'];
+        $query = 'INSERT INTO person (lastname, firstname, birthDate, biography) VALUES (:lastname, :firstname, :birthDate, :biography)';
+        $BD->prepare($query);
+        $queryParam = [':lastname' => $lastname,':firstname' => $firstname, ':birthDate' => $birthDate, ':biography' => $biography];
+        $BD->query($queryParam);
+
+        $idPerson = $BD->lastInsertId();
+
+        $query = 'INSERT INTO picture (path, legend) VALUES (:path, :legend)';
+        $BD->prepare($query);
+        $queryParam = [':path' => $target_file,':legend' => $firstname . ' ' . $lastname];
+        $BD->query($queryParam);
+
+        $id = $BD->lastInsertId();
+
+        $query = 'INSERT INTO personHasPicture (idPerson, idPicture) VALUES (:idPerson, :idPicture)';
+        $BD->prepare($query);
+        $queryParam = [':idPerson' => $idPerson,':idPicture' => $id];
+        $BD->query($queryParam);
     }
 }

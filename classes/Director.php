@@ -40,7 +40,7 @@ class Director extends Person
 
         $BD = $GLOBALS['BD'];
 
-        $query = 'SELECT `id`, `lastname`,`firstname`,`birthDate`,`biography`, `role` 
+        $query = 'SELECT DISTINCT `id`, `lastname`,`firstname`,`birthDate`,`biography`, `role` 
               FROM `person` JOIN `movieHasPerson` ON person.id=movieHasPerson.idPerson
               WHERE role=\'director\'';
 

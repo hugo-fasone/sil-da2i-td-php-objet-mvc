@@ -54,7 +54,9 @@ class BD {
         $this->stmt = $stmt;
     }
 
-
+    public function lastInsertId(){
+        return $this->pdo->lastInsertId();
+    }
 
 
     function connect($host,$dbname,$username,$password){
@@ -86,11 +88,11 @@ class BD {
     }
 
     function fetch(){
-        if ($this->stmt->rowCount() == 1){
-            if ($result = $this->stmt->fetch()) {
-                return $result;
-            }
-        }
+        //if ($this->stmt->rowCount() == 1){
+        //    if ($result = $this->stmt->fetch()) {
+        //        return $result;
+        //    }
+        //}
         if ($this->stmt->rowCount()) {
             // $stmt->setFetchMode(PDO::FETCH_OBJ);
             $array = array();

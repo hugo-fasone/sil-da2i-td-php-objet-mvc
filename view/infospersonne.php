@@ -15,7 +15,7 @@ if (!is_array($data[2][0])){
 } else{
     foreach ($data[2] as $pls){
 
-        echo '<a href="movie.php?id='.$pls['id'].'">'.$pls['title'].'</a>';
+        echo '<a href="movie.php?id='.$pls['id'].'">'.$pls['title'].'</a><br>';
     }
 }
 //echo '<a href="movie.php?id='.$data[2]['id'].'">'.$data[2]['title'].'</a>';

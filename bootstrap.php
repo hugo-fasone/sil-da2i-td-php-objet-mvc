@@ -24,3 +24,5 @@ elseif (strpos($url,'inserPerson.php') !== false)
     CreaActorController::save();
 elseif (strpos($url,'creaFilm.php') !== false)
     CreaFilmController::display();
+elseif (strpos($url,'inserFilm.php') !== false)
+    CreaFilmController::save();

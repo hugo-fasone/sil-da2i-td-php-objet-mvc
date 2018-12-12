@@ -6,9 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<form action="inserPerson.php" method="post">
+<form action="inserFilm.php" method="post" enctype="multipart/form-data">
     <label>Titre du film : </label><input type="text" name="title"><br>
     <label>Date de sortie : </label><input type="date" name="releaseDate"><br>
+    <label>Synopsis : </label><input type="text" name="synopsis"><br>
+    <label>Poster </label><input type="file" name="fileToUpload" id="fileToUpload"><br>
     <label>Réalisateur :</label>
     <select name="director">
 
