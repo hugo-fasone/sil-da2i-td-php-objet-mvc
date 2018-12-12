@@ -137,4 +137,20 @@ class Movie
         $queryParam = [':idMovie' => $idMovie,':idPicture' => $id, ':type' => 'poster'];
         $BD->query($queryParam);
     }
+
+    static function delete($id){
+        $BD = $GLOBALS['BD'];
+        $query = 'DELETE FROM movie WHERE id = :id';
+        $BD->prepare($query);
+        $queryParam = [':id' => $id];
+        $BD->query($queryParam);
+
+        $query = 'DELETE FROM movieHasPerson WHERE idMovie = :id';
+        $BD->prepare($query);
+        $BD->query($queryParam);
+
+        $query = 'DELETE FROM movieHasPicture WHERE idMovie = :id';
+        $BD->prepare($query);
+        $BD->query($queryParam);
+    }
 }

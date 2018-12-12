@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Le Film</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
+<?php getBlock('view/header_bis.php') ?>
 <div class="container">
     <?php
 
@@ -50,6 +43,7 @@
         </aside>
 
         <?php
+        echo '<a href="supprFilm.php?id='.$_GET['id'].'">Supprimer le film</a>';
         $movie = new Movie($_GET['id']);
 
         getBlock('view/infosfilm.php',array($data['movie']->getFilmById(), $data['movie']->getPersonByFilm(),$data['movie']->getPictureByFilm()));

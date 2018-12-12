@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Person</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
+<?php getBlock('view/header_bis.php') ?>
 
 <?php
 

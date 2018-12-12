@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Le Film</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-<div class="inli"><h2>Films</h2><ul>
+<?php getBlock('view/header_bis.php') ?>
+<div class="inli">
+    <h2>Films</h2>
+    <ul>
         <?php
 
         foreach ($data['movies'] as $movie){
@@ -26,10 +21,10 @@
         echo '</ul></div>';
 
         echo ' <div class="inli">
-                <h2>Création</h2>';
-        echo '    <a href="creaPerson.php">Créer une personne</a><br>';
-        echo '    <a href="creaFilm.php">Créer un film</a>';
-        echo '    </div>';
+                <h2>Création</h2><ul>';
+        echo '    <li><a href="creaPerson.php">Créer une personne</a></li>';
+        echo '    <li><a href="creaFilm.php">Créer un film</a></li>';
+        echo '    </ul></div>';
 
 
         ?>

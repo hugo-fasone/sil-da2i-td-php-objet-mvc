@@ -26,3 +26,5 @@ elseif (strpos($url,'creaFilm.php') !== false)
     CreaFilmController::display();
 elseif (strpos($url,'inserFilm.php') !== false)
     CreaFilmController::save();
+elseif (strpos($url,'supprFilm.php') !== false)
+    SupprFilmController::delete($_GET['id']);

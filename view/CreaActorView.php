@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Person</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
+<?php getBlock('view/header_bis.php') ?>
 <form action="inserPerson.php" method="post" enctype="multipart/form-data">
     <label>Prénom : </label><input type="text" name="firstname"><br>
     <label>Nom : </label><input type="text" name="lastname"><br>

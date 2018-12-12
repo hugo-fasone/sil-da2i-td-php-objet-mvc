@@ -10,3 +10,4 @@ require_once 'controllers/ActorController.php';
 require_once 'controllers/DirectorController.php';
 require_once 'controllers/CreaActorController.php';
 require_once 'controllers/CreaFilmController.php';
+require_once 'controllers/SupprFilmController.php';
